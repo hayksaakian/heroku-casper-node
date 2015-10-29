@@ -13,14 +13,16 @@ $ git clone https://github.com/leesei/heroku-casper-node.git
 
 $ cd heroku-casper-node
 
-$ heroku create --stack cedar --buildpack https://github.com/ddollar/heroku-buildpack-multi.git
+$ heroku create --stack cedar --buildpack https://github.com/leesei/heroku-buildpack-casperjs.git
+
+$ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-nodejs
 
 $ git push heroku master
 ```
 
 ## More info
 
-This application uses [buildpack-multi][] to cascade [buildpack-casperjs][] and [buildpack-nodejs][].
+This application uses native [heroku-buildpacks][] to cascade [buildpack-casperjs][] and [buildpack-nodejs][].
 
 ```bash
 $ cat .buildpacks 
@@ -33,7 +35,7 @@ https://github.com/heroku/heroku-buildpack-nodejs
 [PhantomJS][] is also available from `buildpack-casperjs`, you may as well drive it from Node.
 
 [buildpack-casperjs]: https://github.com/leesei/heroku-buildpack-casperjs
-[buildpack-multi]: https://github.com/ddollar/heroku-buildpack-multi
+[heroku-buildpacks]: https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app
 [buildpack-nodejs]: https://github.com/heroku/heroku-buildpack-nodejs
 [CasperJS]: http://casperjs.org/
 [NodeJS]: http://nodejs.org/
